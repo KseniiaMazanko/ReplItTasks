@@ -13,20 +13,29 @@ public class CountLetters {
     public static String countLetters(String str){
 
         String result = "";
-        int count = 0;
-        for(int j=0; j<str.length(); j++){
-            for(int i=0; i<str.length(); i++){
-                if(str.charAt(i)==str.charAt(j)){
-                    count++;
-                }
-                result =  count+""+ str.charAt(j);
+        String removeDuplicates = "";
+
+        for(int i=0; i<str.length(); i++){
+            char ch = str.charAt(i);
+
+            if(removeDuplicates.contains(""+ch)){
+                continue;
             }
 
+            removeDuplicates+=ch;
         }
 
+        for(int i=0; i<removeDuplicates.length(); i++){
+            int count = 0;
+            for(int j=0; j<str.length(); j++){
+                if(removeDuplicates.charAt(i)==str.charAt(j)){
+                    count++;
+                }
+            }
+        result += "" + count + removeDuplicates.charAt(i);
+        }
 
 return result;
-
     }
     /*
     Write a method countLetters that can count letters in a given string and return a new string in the given format:

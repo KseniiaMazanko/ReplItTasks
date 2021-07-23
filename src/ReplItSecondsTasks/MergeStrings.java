@@ -8,11 +8,27 @@ public class MergeStrings {
 
     public static String mergeStrings(String one, String two) {
 
-
         String result = "";
 
+        int max = 0;
+        if(one.length()>two.length()){
+            max=one.length();
+        }
+        else{
+            max=two.length();
+        }
+
+        for(int i=0; i<max; i++){
+            if(i<one.length()){
+                result+=""+one.charAt(i);
+            }
+            if(i<two.length()){
+                result+=""+two.charAt(i);
+            }
+        }
 
         return result;
+
     }
 
     public static void main(String[] args) {
